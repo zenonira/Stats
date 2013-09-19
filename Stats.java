@@ -14,11 +14,13 @@
 
 class Stats {
 	public static void main(String[] args) {
-		int [] a = {1, 2, 3, 4, 5, 6};
+		int [] a = {1, 2, 3, 4, 5, 6, 7, 8};
 		//max(a);
 		//min(a);
-		mean(a);
+		//mean(a);
+		median(a);
 	}
+
 
 	public static int max(int [] a) {
 		int max = a[0];
@@ -51,5 +53,23 @@ class Stats {
 		mean = sum / a.length;
 		System.out.println(mean);
 		return mean;
+	}
+
+	public static double median(int [] a) {
+		int all = 0;
+		double median = 0.0;
+		for (int i = 0; i<a.length; i++) {
+			all++;
+		}
+		if (all % 2 == 0) {
+			all = all / 2;
+			median = (a[all] + a[all - 1]) / 2.0;
+		}
+		if (all % 2 == 1) {
+			all = all / 2;
+			median = a[all];
+		}
+		System.out.println(median);
+		return median;
 	}
 }
