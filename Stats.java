@@ -16,7 +16,8 @@ class Stats {
 	public static void main(String[] args) {
 		int [] a = {1, 2, 3, 4, 5, 6};
 		//max(a);
-		min(a);
+		//min(a);
+		mean(a);
 	}
 
 	public static int max(int [] a) {
@@ -39,5 +40,16 @@ class Stats {
 		}
 		System.out.println(min);
 		return min;
+	}
+
+	public static int mean(int [] a) {
+		int sum = 0;
+		int mean = 0;
+		for (int i =0; i<a.length; i++) {
+			sum = sum + a[i];
+		}
+		mean = sum / a.length;
+		System.out.println(mean);
+		return mean;
 	}
 }
