@@ -18,7 +18,8 @@ class Stats {
 		//max(a);
 		//min(a);
 		//mean(a);
-		median(a);
+		//median(a);
+		quartile1(a);
 	}
 
 
@@ -71,5 +72,22 @@ class Stats {
 		}
 		System.out.println(median);
 		return median;
+	}
+
+	public static double quartile1(int  [] a) {
+		int length = 0;
+		double quart = 0.0;
+		for (int i = 0; i<a.length; i++) {
+			length++;
+		}
+		if (all % 2 == 0) {
+			all = all / 2;
+			median = (a[all] + a[all - 1]) / 4.0;
+		}
+		if (all % 2 == 1) {
+			all = all / 4;
+			median = a[all];
+		}
+		return med;
 	}
 }
