@@ -19,7 +19,9 @@ class Stats {
 		//min(a);
 		//mean(a);
 		//median(a);
-		quartile1(a);
+		//quartile1(a);
+		//quartile3(a);
+		mode(a);
 	}
 
 
@@ -80,14 +82,46 @@ class Stats {
 		for (int i = 0; i<a.length; i++) {
 			length++;
 		}
-		if (all % 2 == 0) {
-			all = all / 2;
-			median = (a[all] + a[all - 1]) / 4.0;
+		if (length % 2 == 0) {
+			length = length / 2;
+			quart = (a[length] + a[length - 1]) / 4.0;
 		}
-		if (all % 2 == 1) {
-			all = all / 4;
-			median = a[all];
+		if (length % 2 == 1) {
+			length = length / 4;
+			quart = a[length];
 		}
-		return med;
+		System.out.println(quart);
+		return quart;
+	}
+
+	public static double quartile3(int [] a) {
+		int length = 0;
+		double quart3 = 0.0;
+		for (int i = 0; i<a.length; i++) {
+			length++;
+		}
+		if (length % 2 == 0) {
+			length = length / 2;
+			quart3 = (a[length] + a[length - 1]) * (.75);
+		}
+		if (length % 2 == 1) {
+			length = length /4 * 3;
+			quart3 = a[length];
+		}
+		System.out.println(quart3);
+		return quart3;
+	}
+
+	public static double mode(int [] a) {
+		int num = 0;
+		int counter = 0;
+		for (int i=0; i<a.length; i++) {
+			num = a[i];
+			for (int j=0; j<a.length; j++) {
+				if (num == a[j]) {
+					
+				}
+			}
+		}
 	}
 }
