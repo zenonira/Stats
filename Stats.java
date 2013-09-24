@@ -14,14 +14,15 @@
 
 class Stats {
 	public static void main(String[] args) {
-		int [] a = {1, 2, 3, 4, 5, 6, 7, 8};
+		int [] a = {2, 4, 4, 4, 5, 5, 7, 9};
 		//max(a);
 		//min(a);
 		//mean(a);
 		//median(a);
 		//quartile1(a);
 		//quartile3(a);
-		mode(a);
+		//mode(a);
+		standardDeviation(a);
 	}
 
 
@@ -47,9 +48,9 @@ class Stats {
 		return min;
 	}
 
-	public static int mean(int [] a) {
+	public static double mean(int [] a) {
 		int sum = 0;
-		int mean = 0;
+		double mean = 0.0;
 		for (int i =0; i<a.length; i++) {
 			sum = sum + a[i];
 		}
@@ -78,50 +79,71 @@ class Stats {
 
 	public static double quartile1(int  [] a) {
 		int length = 0;
-		double quart = 0.0;
+		double median = 0.0;
 		for (int i = 0; i<a.length; i++) {
 			length++;
 		}
 		if (length % 2 == 0) {
 			length = length / 2;
-			quart = (a[length] + a[length - 1]) / 4.0;
+			median = (a[length] + a[length - 1]) / 4.0;
 		}
 		if (length % 2 == 1) {
 			length = length / 4;
-			quart = a[length];
+			median = a[length];
 		}
-		System.out.println(quart);
-		return quart;
+		System.out.println(median);
+		return median;
 	}
-
 	public static double quartile3(int [] a) {
 		int length = 0;
-		double quart3 = 0.0;
+		double median = 0.0;
 		for (int i = 0; i<a.length; i++) {
 			length++;
 		}
 		if (length % 2 == 0) {
 			length = length / 2;
-			quart3 = (a[length] + a[length - 1]) * (.75);
+			median = (a[length] + a[length - 1]) / 4.0 * 3.0;
 		}
 		if (length % 2 == 1) {
-			length = length /4 * 3;
-			quart3 = a[length];
+			length = length / 4 * 3;
+			median = a[length];
 		}
-		System.out.println(quart3);
-		return quart3;
+		System.out.println(median);
+		return median;
 	}
-
-	public static double mode(int [] a) {
+	public static int mode(int [] a) {
 		int num = 0;
-		int counter = 0;
-		for (int i=0; i<a.length; i++) {
+		int add = 0;
+		int value = 0;
+		int great = 0;
+		for (int i = 0; i<a.length; i++) {
 			num = a[i];
+			add = 0;
 			for (int j=0; j<a.length; j++) {
 				if (num == a[j]) {
-					
+					add++;
+				}
+				if (add > value) {
+					value = add;
+					great = a[i];
 				}
 			}
 		}
+		System.out.println("The mode is: " + great);
+		System.out.println("The mode is repeated " + value + " times");
+		return great;
+	}
+	public static double standardDeviation(int [] a) {
+		double mean = mean(a);
+		double sum = 0.0;
+		double divide = 0.0;
+		double standard = 0.0;
+		for (int i=0; i<a.length; i++) {
+			sum += (a[i] - mean) * (a[i] - mean);
+		}
+		divide = sum/a.length;
+		standard = Math.sqrt(divide);
+		System.out.println(standard);
+		return standard;
 	}
 }
