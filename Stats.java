@@ -1,30 +1,19 @@
-// max
-
-// min
-
-// median
-
-// quartile 1
-
-// quartile 3
-
-// mode
-
-// standard deviation
-
 class Stats {
 	public static void main(String[] args) {
-		int [] a = {1, 2, 3, 4, 5, 6, 4, 3};
-		max(a);
-		min(a);
-		mean(a);
-		median(a);
-		quartile1(a);
-		quartile3(a);
-		mode(a);
-		standardDeviation(a);
+		int [] a = {1, 2, 3, 4, 5, 6, 4, 5, 6, 5};
+		print(max(a));
+		print(min(a));
+		print(mean(a));
+		print(median(a));
+		print(quartile1(a));
+		print(quartile3(a));
+		print(mode(a));
+		print(standardDeviation(a));
 	}
 
+	public static void print(double a) {
+		System.out.println(a);
+	}
 
 	public static int max(int [] a) {
 		int max = a[0];
@@ -33,7 +22,7 @@ class Stats {
 				max = a[i];
 			}
 		}
-		System.out.println("The max is: " + max);
+		// System.out.println("The max is: " + max);
 		return max;
 	}
 
@@ -44,18 +33,17 @@ class Stats {
 				min = a[i];
 			}
 		}
-		System.out.println("The min is: " + min);
+		//System.out.println("The min is: " + min);
 		return min;
 	}
 
 	public static double mean(int [] a) {
-		int sum = 0;
 		double mean = 0.0;
 		for (int i =0; i<a.length; i++) {
-			sum = sum + a[i];
+			mean = mean + a[i];
 		}
-		mean = sum / a.length;
-		System.out.println("The mean is: " + mean);
+		mean = mean / a.length;
+		//System.out.println("The mean is: " + mean);
 		return mean;
 	}
 
@@ -73,7 +61,7 @@ class Stats {
 			all = all / 2;
 			median = a[all];
 		}
-		System.out.println("The median is: " + median);
+		//System.out.println("The median is: " + median);
 		return median;
 	}
 
@@ -85,13 +73,13 @@ class Stats {
 		}
 		if (length % 2 == 0) {
 			length = length / 2;
-			median = (a[length] + a[length - 1]) / 4.0 + 1;
+			median = (a[length] + a[length - 1]) / 4.0;
 		}
 		if (length % 2 == 1) {
-			length = length / 4 + 1;
+			length = length / 4;
 			median = a[length];
 		}
-		System.out.println("Quartile 1 equals: " + median);
+		//System.out.println("Quartile 1 equals: " + median);
 		return median;
 	}
 	public static double quartile3(int [] a) {
@@ -108,7 +96,7 @@ class Stats {
 			length = length / 4 * 3;
 			median = a[length];
 		}
-		System.out.println("Quartile 3 equals: " + median);
+		//System.out.println("Quartile 3 equals: " + median);
 		return median;
 	}
 	public static int mode(int [] a) {
@@ -129,8 +117,8 @@ class Stats {
 				}
 			}
 		}
-		System.out.println("The mode is: " + great);
-		System.out.println("The mode is repeated " + value + " times");
+		//System.out.println("The mode is: " + great);
+		//System.out.println("The mode is repeated " + value + " times");
 		return great;
 	}
 	public static double standardDeviation(int [] a) {
@@ -143,7 +131,7 @@ class Stats {
 		}
 		divide = sum/(a.length - 1);
 		standard = Math.sqrt(divide);
-		System.out.println("The standard deviation is: " + standard);
+		//System.out.println("The standard deviation is: " + standard);
 		return standard;
 	}
 }
