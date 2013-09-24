@@ -14,14 +14,14 @@
 
 class Stats {
 	public static void main(String[] args) {
-		int [] a = {2, 4, 4, 4, 5, 5, 7, 9};
-		//max(a);
-		//min(a);
-		//mean(a);
-		//median(a);
-		//quartile1(a);
-		//quartile3(a);
-		//mode(a);
+		int [] a = {1, 2, 3, 4, 5, 6, 4, 3};
+		max(a);
+		min(a);
+		mean(a);
+		median(a);
+		quartile1(a);
+		quartile3(a);
+		mode(a);
 		standardDeviation(a);
 	}
 
@@ -33,7 +33,7 @@ class Stats {
 				max = a[i];
 			}
 		}
-		System.out.println(max);
+		System.out.println("The max is: " + max);
 		return max;
 	}
 
@@ -44,7 +44,7 @@ class Stats {
 				min = a[i];
 			}
 		}
-		System.out.println(min);
+		System.out.println("The min is: " + min);
 		return min;
 	}
 
@@ -55,7 +55,7 @@ class Stats {
 			sum = sum + a[i];
 		}
 		mean = sum / a.length;
-		System.out.println(mean);
+		System.out.println("The mean is: " + mean);
 		return mean;
 	}
 
@@ -73,7 +73,7 @@ class Stats {
 			all = all / 2;
 			median = a[all];
 		}
-		System.out.println(median);
+		System.out.println("The median is: " + median);
 		return median;
 	}
 
@@ -85,13 +85,13 @@ class Stats {
 		}
 		if (length % 2 == 0) {
 			length = length / 2;
-			median = (a[length] + a[length - 1]) / 4.0;
+			median = (a[length] + a[length - 1]) / 4.0 + 1;
 		}
 		if (length % 2 == 1) {
-			length = length / 4;
+			length = length / 4 + 1;
 			median = a[length];
 		}
-		System.out.println(median);
+		System.out.println("Quartile 1 equals: " + median);
 		return median;
 	}
 	public static double quartile3(int [] a) {
@@ -108,7 +108,7 @@ class Stats {
 			length = length / 4 * 3;
 			median = a[length];
 		}
-		System.out.println(median);
+		System.out.println("Quartile 3 equals: " + median);
 		return median;
 	}
 	public static int mode(int [] a) {
@@ -141,9 +141,9 @@ class Stats {
 		for (int i=0; i<a.length; i++) {
 			sum += (a[i] - mean) * (a[i] - mean);
 		}
-		divide = sum/a.length;
+		divide = sum/(a.length - 1);
 		standard = Math.sqrt(divide);
-		System.out.println(standard);
+		System.out.println("The standard deviation is: " + standard);
 		return standard;
 	}
 }
