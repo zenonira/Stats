@@ -1,6 +1,6 @@
 class Stats {
 	public static void main(String[] args) {
-		int [] a = {1, 2, 3, 4, 5};
+		int [] a = {4};
 		print(max(a));
 		print(min(a));
 		print(mean(a));
@@ -142,7 +142,8 @@ class Stats {
 		for (int i=0; i<a.length; i++) {
 			sum += (a[i] - mean) * (a[i] - mean);
 		}
-		divide = sum/a.length - 1;
+		
+		divide = sum/(a.length - 1);
 		standard = Math.sqrt(divide);
 		return standard;
 	}
